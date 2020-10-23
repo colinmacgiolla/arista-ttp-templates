@@ -1,7 +1,7 @@
 <group name="interfaces.svi">
 interface Vlan{{id}}
-   ip address {{ ip }}/{{ netmask }}
-   description {{description}}
+   ip address {{ ip_address }}/{{ netmask }}
+   description {{description | ORPHRASE }}
    mtu {{ mtu }}
    no autostate {{ no_autostate | set(True) }}
    vrf {{vrf}}
