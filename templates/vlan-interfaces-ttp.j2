@@ -1,0 +1,53 @@
+<group name="interfaces.svi">
+interface Vlan{{id}}
+   ip address {{ ip }}/{{ netmask }}
+   description {{description}}
+   mtu {{ mtu }}
+   no autostate {{ no_autostate | set(True) }}
+   vrf {{vrf}}
+   vrf forwarding {{vrf}}
+   ip virtual-router address {{ip_virtual_router_address}}
+   ip helper-address {{ip_helper_address}}
+
+   ipv6 enable {{ ipv6_enable | set(True) }}
+   ipv6 address {{ipv6_address}}
+   ipv6 address {{ipv6_address_link_local}} link-local
+   ipv6 nd ra disable {{ ipv6_nd_ra_disabled | set(True)}}
+   ipv6 nd managed-config-flag {{ ipv6_nd_managed_config_flag | set(True)}}
+
+   ip access-group {{ access_group_in }} in
+   ip access-group {{ access_group_out }} out
+   ipv6 access-group {{ ipv6_access_group_in }} in
+   ipv6 access-group {{ ipv6_access_group_out }} out
+
+   ip ospf network point-to-point {{ospf_network_point_to_point | set(true)}}
+   ip ospf area {{ ospf_area }}
+   ip ospf authentication {{ ospf_authentication | set("simple") }}
+   ip ospf authentication message-digest {{ ospf_authentication | set("message-digest") }}
+   ip ospf authentication-key 7 {{ ospf_authentication_key }} 
+   ip ospf message-digest-key {{ ospf_message_digest_key }} {{hash_algorithm}} 7 {{ospf_auth_key}}
+
+   <group name="pim.ipv4">
+   pim ipv4 sparse-mode {{ sparse_mode | set(true) }}
+   pim ipv4 local-interface {{local_interface}}   
+   </group>
+
+   ipv6 virtual-router address {{ipv6_virtual_router_address}}
+
+   isis enable {{isis_enable | set(true) }}
+   isis passive {{isis_passive | set(true) }}
+   isis metric {{isis_metric}}
+   isis network point-to-point {{isis_network_point_to_point | set(true) }}
+
+
+   <group name="vrrp.{{ vrrpGroupId }}">
+   vrrp {{vrrpGroupId}} priority {{groupPriority}}
+   vrrp {{vrrpGroupId}} preempt delay minimum {{preemptMin}}
+   vrrp {{vrrpGroupId}} preempt delay reload {{preemptReload}}
+   vrrp {{vrrpGroupId}} authentication text {{authText}}
+   vrrp {{vrrpGroupId}} ip {{ipv4}}
+   vrrp {{vrrpGroupId}} ipv4 {{ipv4}}
+   vrrp {{vrrpGroupId}} ipv6 {{ipv6}}
+   </group>
+   shutdown {{ shutdown | set(True) }}
+</group>
