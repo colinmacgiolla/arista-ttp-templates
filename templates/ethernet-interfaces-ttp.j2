@@ -1,8 +1,8 @@
 <group name="ethernet_interfaces">
-interface {{ethernet_interface}}
+interface Ethernet{{ethernet_interface}}
 {{ mode | set("access") }}
 
-   description {{description}}
+   description {{description | ORPHRASE }}
    shutdown {{ shutdown | set(true) }}
    speed forced {{speed}}
 
