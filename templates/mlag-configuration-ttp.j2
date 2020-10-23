@@ -1,0 +1,17 @@
+<group name="mlag_configuration">
+mlag configuration
+   domain-id {{domain_id}}
+   local-interface {{local_interface}}
+   peer-address {{peer_address}}
+   peer-link {{peer_link}}
+
+   <group name="peer_address_heartbeat">
+   peer-address heartbeat {{peer_ip}} vrf {{vrf}}
+   peer-address heartbeat {{peer_ip}}
+   </group>
+   dual-primary detection delay {{dual_primary_detection_delay}} action errdisable all-interfaces
+   reload-delay mlag {{reload_delay_mlag}}
+   reload-delay non-mlag {{reload_delay_non_mlag}}
+
+</group>
+   
