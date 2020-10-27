@@ -1,0 +1,6 @@
+<group name="vlans.{{vlan}}" >
+vlan {{ vlan }}
+   name {{ name }}
+   state {{ state }}
+   trunk-group {{ trunk_groups | to_list | joinmatches }}
+</group>
