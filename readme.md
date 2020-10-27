@@ -11,7 +11,7 @@ This is the beginning of a set of templates, using TTP, and the AVD data structu
 ```jinja2
 {{ mode | set("access") }}
 ```
-reflects that the default mode of an Ethernet interface is access, but this needs to be inserted to confirm to the  target data-model e.g.
+reflects that the default mode of an Ethernet interface is access, but this needs to be inserted to conform to the  target data-model e.g.
 ```json
 {
 	"interfaces": {
