@@ -1,17 +1,10 @@
-<macro>
-def enabled(data):
-   return data,{'ip_routing':True}
-def disabled(data):
-   return data,{'ip_routing':False}
-</macro>
-
 <group name="routing">
 {{ ip_routing | set(false) }}
 ip routing {{ ip_routing | set(true) }}
 
 <group name="vrfs.{{vrf}}" method="table">
-no ip routing vrf {{vrf | | macro("disabled")}}
-ip routing vrf {{vrf | macro("enabled")}}
+no ip routing vrf {{vrf | let("ip_routing",False) }}
+ip routing vrf {{vrf | let("ip_routing",True)}}
 </group>
 
 </group>
