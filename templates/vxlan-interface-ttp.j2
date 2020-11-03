@@ -1,0 +1,23 @@
+<group name="interfaces.vxlan_tunnel_interfaces">
+
+<group name="Vxlan{{vxlan_interface}}">
+interface Vxlan{{vxlan_interface}}
+   vxlan source-interface {{source_interface}}
+   vxlan udp-port {{vxlan_udp_port}}
+
+   <group name="virtual_router">
+   vxlan virtual-router encapsulation mac-address {{encapsulation_mac_address}}
+   </group>
+
+   <group name="vxlan_vni_mappings.vlans.{{vlan}}" method="table">
+   vxlan vlan {{vlan}} vni {{vni}}
+   </group>
+
+   <group name="vxlan_vni_mappings.vrfs.{{vrf}}" method="table">
+   vxlan vrf {{vrf}} vni {{vni}}
+   </group>
+
+</group>
+
+
+</group>
