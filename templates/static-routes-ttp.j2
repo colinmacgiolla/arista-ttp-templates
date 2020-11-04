@@ -1,0 +1,6 @@
+<group name="static_routes" method="list">
+ip route {{ destination_address_prefix }}/{{ destination_address_prefix_mask }} {{next_hop | ORPHRASE}}
+</group>
+<group name="static_routes" method="list">
+ip route vrf {{vrf}} {{ destination_address_prefix }}/{{ destination_address_prefix_mask }} {{next_hop | ORPHRASE}}
+</group>
