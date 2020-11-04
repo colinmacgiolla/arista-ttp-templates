@@ -46,7 +46,7 @@ interface Ethernet{{ethernet_interface}}
    ipv6 address {{ipv6_address_link_local}}/{{ipv6_address_link_local_netmask}} link-local
    ipv6 nd ra disabled {{ ipv6_nd_ra_disabled | set(true) }}
 
-
+   ip proxy-arp {{ip_proxy_arp | set(True)}}
 
    ip access-group {{ access_group_in }} in
    ip access-group {{ access_group_out }} out

@@ -41,6 +41,7 @@ interface Port-Channel{{ port_channel_interface | ORPHRASE}}
    ipv6 nd prefix {{ prefix }}
    </group>
 
+   ip proxy-arp {{ip_proxy_arp | set(True)}}
 
    ip access-group {{ access_group_in }} in
    ip access-group {{ access_group_out }} out

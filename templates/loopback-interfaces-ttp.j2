@@ -12,6 +12,8 @@ interface Loopback{{loopback_interface}}
    ipv6 enable {{ ipv6_enable | set(true) }}
    ipv6 address {{ipv6_address}}/{{ipv6_netmask}}
 
+   ip proxy-arp {{ip_proxy_arp | set(True)}}
+
    ip ospf area {{ ospf_area }}
 
    isis enable {{isis_enable | set(true) }}

@@ -8,6 +8,7 @@ interface Vlan{{id}}
    vrf forwarding {{vrf}}
    ip virtual-router address {{ip_virtual_router_address}}
    ip helper-address {{ip_helper_address}}
+   ip proxy-arp {{ip_proxy_arp | set(True)}}
 
    ipv6 enable {{ ipv6_enable | set(True) }}
    ipv6 address {{ipv6_address}}
