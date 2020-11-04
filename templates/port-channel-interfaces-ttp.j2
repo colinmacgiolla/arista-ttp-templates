@@ -1,6 +1,5 @@
-<group name="interfaces.port_channel_interfaces">
+<group name="interfaces.port_channel_interfaces.{{port_channel_interface}}">
 
-<group name="{{port_channel_interface}}">
 interface Port-Channel{{ port_channel_interface | ORPHRASE}}
 {{ mode | set("access") }}
 
@@ -53,7 +52,5 @@ interface Port-Channel{{ port_channel_interface | ORPHRASE}}
    </group>
 
    vmtracer vmware-esx {{ vmtracer | set(true) }}
-
-</group>
 
 </group>
