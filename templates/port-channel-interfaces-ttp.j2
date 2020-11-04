@@ -1,0 +1,56 @@
+<group name="interfaces.port_channel_interfaces.{{port_channel_interface}}">
+
+interface Port-Channel{{ port_channel_interface | ORPHRASE}}
+{{ mode | set("access") }}
+
+   description {{description | ORPHRASE }}
+   shutdown {{ shutdown | set(True) }}
+   mtu {{ mtu }}
+
+   no switchport {{ type | set("routed") }}
+
+   switchport mode {{mode}}
+   switchport access vlan {{vlans}}
+   switchport trunk allowed vlan {{vlans}}
+   switchport trunk native vlan {{native_vlan}}
+   switchport trunk group {{trunk_group}}
+
+   mlag {{mlag}}
+
+       identifier {{esi}}
+       route-target import {{rt}}
+
+   lacp system-id {{lacp_id}}
+
+   <group name="qos">
+   qos trust {{trust}}
+   </group>
+
+   spanning-tree portfast {{spanning_tree_portfast | set("edge")}}
+   spanning-tree portfast network {{spanning_tree_portfast | set("network")}}
+   spanning-tree bpdufilter enable {{spanning_tree_bpdufilter | set(true)}}
+   spanning-tree bpduguard enable {{spanning_tree_bpduguard | set(true)}}   
+
+   ip address {{ip_address}}/{{netmask}}
+   ipv6 enable {{ ipv6_enable | set(true) }}
+   ipv6 address {{ipv6_address}}/{{ipv6_netmask}}
+   ipv6 address {{ipv6_address_link_local}}/{{ipv6_address_link_local_netmask}} link-local
+   ipv6 nd ra disabled {{ ipv6_nd_ra_disabled | set(true) }}
+   ipv6 nd managed-config-flag {{ ipv6_nd_managed_config_flag | set(true) }}
+   <group name="ipv6_nd_prefixes.{{prefix}}" method="table">
+   ipv6 nd prefix {{ prefix }}
+   </group>
+
+
+   ip access-group {{ access_group_in }} in
+   ip access-group {{ access_group_out }} out
+   ipv6 access-group {{ ipv6_access_group_in }} in
+   ipv6 access-group {{ ipv6_access_group_out }} out   
+
+   <group name="pim.ipv4">
+   pim ipv4 sparse-mode {{ sparse_mode | set(true) }}
+   </group>
+
+   vmtracer vmware-esx {{ vmtracer | set(true) }}
+
+</group>
