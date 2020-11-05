@@ -23,10 +23,11 @@ reflects that the default mode of an Ethernet interface is access, but this need
 	}
 }
 ```
+* This is not guaranteed to be directly AVD compatible at this time (December 2020), just very close.
 
 # Example
 
-So far I've just created a single template for [VLAN interfaces/SVIs](./templates/vlan-interfaces-ttp.j2) but as an example:
+A template for [VLAN interfaces/SVIs](./templates/vlan-interfaces-ttp.j2) as an example:
 
 ## Sample Configuration
 Obviously not a correct config, but really just to demonstrate the population of state
