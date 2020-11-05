@@ -1,17 +1,3 @@
-<macro>
-def parse_neighbor_flags(data):
-   line = data.split()
-   if "peer group" in data:
-      return { "peer group" : line[2]}
-   elif len(line) == 1:
-      return { line[0]:True}
-   elif len(line) == 2:
-      return { line[0]:line[1]}
-   else:
-      return { line[0]:line[1:]}
-
-</macro>
-
 <group name="router_bgp.{{as}}">
 {{ default_ipv4_unicast | set(True)}}
 router bgp {{as}}
@@ -20,8 +6,10 @@ router bgp {{as}}
    bgp asn notation {{bgp_asn_notation}}
    no bgp default ipv4-unicast {{ default_ipv4_unicast | set(False)}}
 
-   <group name="neighbors.{{neighbor}}" method="table">
-   neighbor {{neighbor}} {{ flags | ORPHRASE | macro("parse_neighbor_flags") }}
+
+   <group name="neighbors.{{neighbor}}.{{flag}}" method="table">
+   neighbor {{neighbor}} {{flag }} {{ setting | ORPHRASE }}
+   neighbor {{neighbor}} {{flag }}
    </group>
 
    <group name="redistibute_routes.{{route}}" method="table">
