@@ -5,6 +5,7 @@ router bgp {{as}}
    maximum-paths {{maximum_paths}} ecmp {{ecmp}}
    bgp asn notation {{bgp_asn_notation}}
    no bgp default ipv4-unicast {{ default_ipv4_unicast | set(False)}}
+   distance bgp {{distance_bgp | ORPHRASE}}
 
 
    <group name="neighbors.{{neighbor}}.{{flag}}" method="table">
