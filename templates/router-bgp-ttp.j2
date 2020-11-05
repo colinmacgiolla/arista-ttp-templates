@@ -1,0 +1,105 @@
+<macro>
+def parse_neighbor_flags(data):
+   line = data.split()
+   if "peer group" in data:
+      return { "peer group" : line[2]}
+   elif len(line) == 1:
+      return { line[0]:True}
+   elif len(line) == 2:
+      return { line[0]:line[1]}
+   else:
+      return { line[0]:line[1:]}
+
+</macro>
+
+<group name="router_bgp.{{as}}">
+{{ default_ipv4_unicast | set(True)}}
+router bgp {{as}}
+   router-id {{router_id}}
+   maximum-paths {{maximum_paths}} ecmp {{ecmp}}
+   bgp asn notation {{bgp_asn_notation}}
+   no bgp default ipv4-unicast {{ default_ipv4_unicast | set(False)}}
+
+   <group name="neighbors.{{neighbor}}" method="table">
+   neighbor {{neighbor}} {{ flags | ORPHRASE | macro("parse_neighbor_flags") }}
+   </group>
+
+   <group name="redistibute_routes.{{route}}" method="table">
+   redistribute {{route}} 
+   redistribute {{route}} route-map {{ route_map | ORPHRASE }}
+   </group>
+
+   <group name="vlans.{{vlan}}">
+   vlan {{vlan}}
+      rd {{rd}}
+      <group name="route_targets.{{type}}" method="list">
+      route-target {{type}} {{route_target}}
+      </group>
+
+      <group name="redistibute_routes.{{route}}" method="table">
+      redistribute {{route}} 
+      redistribute {{route}} route-map {{ route_map | ORPHRASE }}
+      </group>
+
+   </group>
+
+   <group name="vlan_aware_bundle.{{bundle_name}}">
+   vlan_aware_bundle {{bundle_name}}
+      rd {{rd}}
+
+      <group name="route_targets.{{type}}" method="list">
+      route-target {{type}} {{route_target}}
+      </group>
+      
+      <group name="redistibute_routes.{{route}}" method="table">
+      redistribute {{route}} 
+      redistribute {{route}} route-map {{ route_map | ORPHRASE }}
+      </group>
+
+      vlan {{vlan}}
+      
+   </group>
+
+   <group name="address_family_{{af}}">
+   address-family {{af | ORPHRASE | resub(old=" ", new="_") }}
+   <group name="peer-groups.{{peer_group}}" method="table">
+      neighbor {{peer_group | let("activate",True)}} activate
+      no neighbor {{peer_group | let("activate",False)}} activate 
+      neighbor {{ peer_group }} route-map {{ route_map_in }} in
+      neighbor {{ peer_group }} route-map {{ route_map_out }} out
+      neighbor {{ peer_group }} prefix-list {{ prefix_list_in }} in
+      neighbor {{ peer_group }} prefix-list {{ prefix_list_out }} out
+   </group>
+   <group name="networks" method="table">
+      network {{network}}
+      network {{network}} route-map {{ route_map }}
+   </group>
+
+   <group name="redistibute_routes.{{route}}" method="table">
+      redistribute {{route}} 
+      redistribute {{route}} route-map {{ route_map | ORPHRASE }}
+   </group>
+
+   </group>
+
+   <group name="vrfs.{{vrf}}">
+   vrf {{vrf}}
+      rd {{rd}}
+      <group name="route_targets.{{type}}" method="table">
+      route-target {{type}} {{address_family}} {{route_target}}
+      </group>
+      router-id {{router_id}}
+
+      <group name="neighbors.{{neighbor}}">
+      neighbor {{ neighbor }} remote-as {{remote_as}}
+      neighbor {{ neighbor }} peer group {{peer_group}}
+      neighbor {{ neighbor }} peer-group {{peer_group}}
+      </group>
+      <group name="redistibute_routes.{{route}}" method="table">
+      redistribute {{route}} 
+      redistribute {{route}} route-map {{ route_map | ORPHRASE }}
+      </group>
+
+   </group>
+
+</group>
