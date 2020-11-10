@@ -33,10 +33,13 @@ interface Ethernet{{ethernet_interface}}
    qos trust {{trust | set(true) }}
    </group>
 
+   no spanning-tree portfast auto {{spanning_tree_portfast_auto | set(false)}}
    spanning-tree portfast {{spanning_tree_portfast | set("edge")}}
    spanning-tree portfast network {{spanning_tree_portfast | set("network")}}
    spanning-tree bpdufilter enable {{spanning_tree_bpdufilter | set(true)}}
    spanning-tree bpduguard enable {{spanning_tree_bpduguard | set(true)}}
+   spanning-tree link-type {{ spanning_tree_link_type }}
+
 
    vrf {{vrf}}
    vrf forwarding {{vrf}}
