@@ -1,10 +1,11 @@
 <group name="spanning_tree">
-spanning-tree mode {{mode}}
-
-<group name="mst.{{instance}}" >
-spanning-tree mst {{instance}} priority {{priority}}
+spanning-tree mode {{ mode }}
+no spanning-tree vlan {{ no_spanning_tree_vlan }}
+<group name="mst*" >
+spanning-tree mst configuration {{_start_ }}
+   instance {{ instance }} vlan {{ members }}
 </group>
-
-no spanning-tree vlan-id {{no_spanning_tree_vlan }}
-
+<group name="priority*" method="table">
+spanning-tree vlan {{ vlans }} priority {{ priority }}
+</group>
 </group>
