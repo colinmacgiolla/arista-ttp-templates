@@ -13,7 +13,8 @@ interface Port-Channel{{ port_channel_interface | ORPHRASE}}
    switchport access vlan {{vlans}}
    switchport trunk allowed vlan {{vlans}}
    switchport trunk native vlan {{native_vlan}}
-   switchport trunk group {{trunk_group}}
+   switchport trunk group {{trunk_groups |to_list|joinmatches}}
+   switchport trunk-group {{trunk_groups |to_list|joinmatches}}
 
    mlag {{mlag}}
 
