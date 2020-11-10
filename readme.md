@@ -69,9 +69,8 @@ And the json output:
 [
 	[
 		{
-			"interfaces": {
-				"svi": {
-					"id": "246",
+			"vlan_interfaces": {
+				"246": {
 					"ip": "10.10.20.2",
 					"netmask": "23",
 					"ospf_authentication": "message-digest",
