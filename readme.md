@@ -24,6 +24,7 @@ reflects that the default mode of an Ethernet interface is access, but this need
 	}
 }
 ```
+* If constructing a master template (single file) to capture the entire config, or even partial config, for a device, you should structure the order of the template groups to match the order that the config you are parsing, otherwise the parser gets out of sync and you end up with unexpected elements getting added e.g. do Port-Channel group before Ethernet, SVI, etc.
 
 # Example
 
