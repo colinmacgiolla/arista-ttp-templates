@@ -25,6 +25,21 @@ reflects that the default mode of an Ethernet interface is access, but this need
 }
 ```
 * If constructing a master template (single file) to capture the entire config, or even partial config, for a device, you should structure the order of the template groups to match the order that the config you are parsing, otherwise the parser gets out of sync and you end up with unexpected elements getting added e.g. do Port-Channel group before Ethernet, SVI, etc.
+* If your output jinja templates expect a list, then you should explicity cast the group as such, otherwise if there is only a single match the result will be a dict, with would be undesirable e.g. we parse one or more static routes:
+```jinja
+<group name="static_routes*">
+ip route {{ destination_address_prefix }}/{{ destination_address_prefix_mask }} {{next_hop | ORPHRASE}}
+</group>
+```
+but our template explicitly expects this to be a list:
+```jinja
+{% if static_routes is defined and static_routes is not none %}
+!
+{%     for static_route in static_routes %}
+ip route {% if static_route.vrf is defined %}vrf {{static_route.vrf}} {% endif %}{{ static_route.destination_address_prefix }}/{{ static_route.destination_address_prefix_mask }} {{static_route.next_hop}}
+{%     endfor %}
+{% endif %}
+```
 
 # Example
 
