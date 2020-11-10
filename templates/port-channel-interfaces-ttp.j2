@@ -32,9 +32,9 @@ interface Port-Channel{{ port_channel_interface | ORPHRASE}}
    spanning-tree bpdufilter enable {{spanning_tree_bpdufilter | set(true)}}
    spanning-tree bpduguard enable {{spanning_tree_bpduguard | set(true)}}   
 
-   ip address {{ip_address}}/{{netmask}}
+   ip address {{ip_address}}
    ipv6 enable {{ ipv6_enable | set(true) }}
-   ipv6 address {{ipv6_address}}/{{ipv6_netmask}}
+   ipv6 address {{ipv6_address}}
    ipv6 address {{ipv6_address_link_local}}/{{ipv6_address_link_local_netmask}} link-local
    ipv6 nd ra disabled {{ ipv6_nd_ra_disabled | set(true) }}
    ipv6 nd managed-config-flag {{ ipv6_nd_managed_config_flag | set(true) }}

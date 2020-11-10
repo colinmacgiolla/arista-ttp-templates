@@ -3,9 +3,9 @@ interface Management{{management_interface | ORPHRASE}}
    description {{description}}
    vrf {{vrf}}
    vrf forwarding {{vrf}}
-   ip address {{ip_address}}/{{netmask}}
+   ip address {{ip_address}}
    ipv6 enable {{ ipv6_enable | set(true) }}
-   ipv6 address {{ipv6_address}}/{{ipv6_netmask}}
+   ipv6 address {{ipv6_address}}
    shutdown {{ shutdown | set(True) }}
 
 </group>

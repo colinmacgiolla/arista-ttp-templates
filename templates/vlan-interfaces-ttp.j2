@@ -1,6 +1,6 @@
 <group name="vlan_interfaces.{{id}}">
 interface Vlan{{id}}
-   ip address {{ ip_address }}/{{ netmask }}
+   ip address {{ ip_address }}
    description {{description | ORPHRASE }}
    mtu {{ mtu }}
    no autostate {{ no_autostate | set(True) }}
