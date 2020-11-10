@@ -71,8 +71,7 @@ And the json output:
 		{
 			"vlan_interfaces": {
 				"246": {
-					"ip": "10.10.20.2",
-					"netmask": "23",
+					"ip_address": "10.10.20.2/23",
 					"ospf_authentication": "message-digest",
 					"ospf_network_point_to_point": true,
 					"pim": {
