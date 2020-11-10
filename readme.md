@@ -9,7 +9,7 @@ This is the beginning of a set of templates, using TTP, and the AVD data structu
 * This is not guaranteed to be directly AVD compatible at this time (Q4 2020), just reasonably close.
 * The idealised goal is to generate structured data that is directly compatible with [AVD](https://github.com/aristanetworks/ansible-avd) - this means that in some areas, the template structure may be more convoluted then necessary, simply to bend the parser into delivering the desired outcome. This not an problem with the data-model, or the parser, simply the reality that we have to deal with - some post-processing may also be needed.
 * The use of a "blank" match at the beginning of some templates is to set default parameters e.g.
-```jinja2
+```jinja
 {{ mode | set("access") }}
 ```
 reflects that the default mode of an Ethernet interface is access, but this needs to be inserted to conform to the  target data-model e.g.
