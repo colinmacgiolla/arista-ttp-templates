@@ -100,4 +100,4 @@ And the json output:
 # Tips
 
 ## VSCODE Syntax Highlighting
-* Install the [Better Jinj](https://marketplace.visualstudio.com/items?itemName=samuelcolvin.jinjahtml) extension, and associate .ttp files with *Jinja XML* language for my preferred syntax highlighting - thanks to brobare for that tip.
+* Install the [Better Jinja](https://marketplace.visualstudio.com/items?itemName=samuelcolvin.jinjahtml) extension, and associate .ttp files with *Jinja XML* language for my preferred syntax highlighting - thanks to brobare for that tip.
