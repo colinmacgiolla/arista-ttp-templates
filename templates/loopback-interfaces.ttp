@@ -20,5 +20,5 @@ interface Loopback{{loopback_interface}}
    isis passive {{isis_passive | set(true) }}
    isis metric {{isis_metric}}
    isis network point-to-point {{isis_network_point_to_point | set(true) }}
-
+! {{_end_}}
 </group>

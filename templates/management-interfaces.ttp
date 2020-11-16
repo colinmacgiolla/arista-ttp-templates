@@ -7,5 +7,5 @@ interface Management{{management_interface | ORPHRASE}}
    ipv6 enable {{ ipv6_enable | set(true) }}
    ipv6 address {{ipv6_address}}
    shutdown {{ shutdown | set(True) }}
-
+! {{_end_}}
 </group>

@@ -56,5 +56,5 @@ interface Port-Channel{{ port_channel_interface | ORPHRASE}}
    </group>
 
    vmtracer vmware-esx {{ vmtracer | set(true) }}
-
+! {{_end_}}
 </group>

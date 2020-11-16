@@ -74,5 +74,5 @@ interface Ethernet{{ethernet_interface}}
    </group>
 
    vmtracer vmware-esx {{ vmtracer | set(true) }}
-
+! {{_end_}}
 </group>

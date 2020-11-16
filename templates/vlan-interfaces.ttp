@@ -51,4 +51,5 @@ interface Vlan{{id}}
    vrrp {{vrrpGroupId}} ipv6 {{ipv6}}
    </group>
    shutdown {{ shutdown | set(True) }}
+! {{_end_}}
 </group>
