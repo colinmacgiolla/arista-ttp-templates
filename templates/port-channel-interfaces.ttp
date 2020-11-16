@@ -23,6 +23,9 @@ interface Port-Channel{{ port_channel_interface | ORPHRASE}}
 
    lacp system-id {{lacp_id}}
 
+   port-channel lacp fallback timeout {{ lacp_fallback_timeout }} 
+   port-channel lacp fallback {{ lacp_fallback_mode }} 
+
    <group name="qos">
    qos trust {{trust}}
    </group>
