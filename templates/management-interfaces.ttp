@@ -1,4 +1,4 @@
-<group name="interfaces.management_interfaces.{{management_interface}}">
+<group name="management_interfaces.{{management_interface}}">
 interface Management{{management_interface | ORPHRASE}}
    description {{description}}
    vrf {{vrf}}
