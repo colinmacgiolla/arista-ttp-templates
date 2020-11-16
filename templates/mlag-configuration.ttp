@@ -1,5 +1,5 @@
 <group name="mlag_configuration">
-mlag configuration {{mlag | set(True)}}
+mlag configuration {{ _start_}}
    domain-id {{domain_id}}
    local-interface {{local_interface}}
    peer-address {{peer_address}}
@@ -12,6 +12,6 @@ mlag configuration {{mlag | set(True)}}
    dual-primary detection delay {{dual_primary_detection_delay}} action errdisable all-interfaces
    reload-delay mlag {{reload_delay_mlag}}
    reload-delay non-mlag {{reload_delay_non_mlag}}
-
+!{{ _end_ }}
 </group>
    
