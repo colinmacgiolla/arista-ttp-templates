@@ -1,5 +1,5 @@
 <group name="snmp">
 snmp-server contact {{contact}}
 snmp-server location {{location}}
-
+snmp-server source-interface {{source_interface}}
 </group>
