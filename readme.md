@@ -43,7 +43,7 @@ ip route {% if static_route.vrf is defined %}vrf {{static_route.vrf}} {% endif %
 
 # Example
 
-A template for [VLAN interfaces/SVIs](./templates/vlan-interfaces-ttp.j2) as an example:
+A template for [VLAN interfaces/SVIs](./templates/vlan-interfaces.ttp) as an example:
 
 ## Sample Configuration
 Obviously not a correct config, but really just to demonstrate the population of state
