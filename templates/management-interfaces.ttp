@@ -1,6 +1,6 @@
 <group name="management_interfaces.{{management_interface}}">
 interface Management{{management_interface | ORPHRASE}}
-   description {{description}}
+   description {{description | ORPHRASE}}
    vrf {{vrf}}
    vrf forwarding {{vrf}}
    ip address {{ip_address}}
