@@ -1,6 +1,11 @@
 <group name="logging">
-logging console {{ console }}
+no logging console {{ console | set(false) }}
+logging console {{ console | set(true) }}
 logging trap {{trap}}
+<group name="host" method="list">
+logging host {{host}}
+</group>
 logging format hostname {{hostname}}
+logging format timestamp {{timestamp}}
 logging source-interface {{source_interface}}
 </group>
