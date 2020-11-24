@@ -1,0 +1,6 @@
+<group name="logging">
+logging console {{ console }}
+logging trap {{trap}}
+logging format hostname {{hostname}}
+logging source-interface {{source_interface}}
+</group>
