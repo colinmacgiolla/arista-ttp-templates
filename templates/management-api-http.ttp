@@ -1,0 +1,7 @@
+<group name="management_api_http">
+management api http-commands {{_start_}}
+   <group name="enable_vrfs.{{vrf}}">
+   vrf {{ vrf }}
+   </group>
+!{{_end_}}
+</group>
