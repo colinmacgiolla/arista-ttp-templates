@@ -1,2 +1,2 @@
 hostname {{hostname | ORPHRASE}}
-! 
+! {{_end_}}
