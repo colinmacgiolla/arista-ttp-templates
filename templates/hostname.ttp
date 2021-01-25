@@ -1,2 +1,4 @@
+<group name="{{hostname}}">
 hostname {{hostname | ORPHRASE}}
 ! {{_end_}}
+</group>
