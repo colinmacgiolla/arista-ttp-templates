@@ -1,0 +1,10 @@
+<group name="access-lists.standard.{{acl_name}}">
+ip access-list standard {{acl_name}}
+   {{index}} {{action}} {{ statement | ORPHRASE }}
+! {{_end_}}
+</group>
+<group name="access-lists {{acl_name}}">
+ip access-list {{acl_name}}
+   {{index}} {{action}} {{ statement | ORPHRASE }}
+! {{_end_}}
+</group>
