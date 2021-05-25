@@ -3,4 +3,5 @@ peer-filter {{peer_filter}}
 <group name="{{sequence}}" method="list">
    {{sequence}} match {{match | ORPHRASE}}
 </group>
+! {{_end_}}
 </group>

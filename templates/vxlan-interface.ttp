@@ -18,6 +18,5 @@ interface Vxlan{{vxlan_interface}}
    </group>
 
 </group>
-
 ! {{_end_}}
 </group>

@@ -8,4 +8,5 @@ logging host {{host}}
 logging format hostname {{hostname}}
 logging format timestamp {{timestamp}}
 logging source-interface {{source_interface}}
+! {{_end_}}
 </group>

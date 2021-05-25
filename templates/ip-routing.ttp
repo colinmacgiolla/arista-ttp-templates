@@ -6,5 +6,5 @@ ip routing {{ ip_routing | set(true) }}
 no ip routing vrf {{vrf | let("ip_routing",False) }}
 ip routing vrf {{vrf | let("ip_routing",True)}}
 </group>
-
+! {{_end_}}
 </group>

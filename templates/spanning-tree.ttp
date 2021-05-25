@@ -8,4 +8,5 @@ spanning-tree mst configuration {{_start_ }}
 <group name="priority*" method="table">
 spanning-tree vlan {{ vlans }} priority {{ priority }}
 </group>
+! {{_end_}}
 </group>

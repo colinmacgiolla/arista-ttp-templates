@@ -3,4 +3,5 @@ ip route {{ destination_address_prefix }}/{{ destination_address_prefix_mask }} 
 </group>
 <group name="static_routes*">
 ip route vrf {{vrf}} {{ destination_address_prefix }}/{{ destination_address_prefix_mask }} {{next_hop | ORPHRASE}}
+! {{_end_}}
 </group>

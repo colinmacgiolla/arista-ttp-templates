@@ -1,4 +1,5 @@
 <group name="radius_servers*" method="table">
 radius-server host {{host}} vrf {{vrf}} key 7 {{key}}
 radius-server host {{host}} key 7 {{key}}
+! {{_end_}}
 </group>

@@ -1,3 +1,4 @@
 <group name="vlan_internal_order">
 vlan internal order {{allocation}} range {{beginning}} {{ending}}
+! {{_end_}}
 </group>

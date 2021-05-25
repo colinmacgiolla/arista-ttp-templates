@@ -1,4 +1,5 @@
 <group name="source_interfaces*" method="table">
 ip {{protocol}} vrf {{vrf}} source-interface {{source_interface}}
 ip {{protocol}} source-interface {{source_interface}}
+! {{_end_}}
 </group>
