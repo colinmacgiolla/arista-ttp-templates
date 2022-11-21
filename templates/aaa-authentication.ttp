@@ -1,0 +1,24 @@
+<group name="aaa_authentication">
+<group name="login">
+aaa authentication login default {{ default | ORPHRASE }}
+</group>
+<group name="login">
+aaa authentication login console {{ console | ORPHRASE }}
+</group>
+<group name="enable">
+aaa authentication enable default {{ default | ORPHRASE }}
+</group>
+<group name="dot1x">
+aaa authentication dot1x default {{ default | ORPHRASE }}
+</group>
+<group name="on_failure_log">
+aaa authentication policy on-failure log {{ on_failure_log | set(true)}}
+</group>
+<group name="on_success_log">
+aaa authentication policy on-success log {{ on_success_log | set(true) }}
+</group>
+<group name="local">
+aaa authentication policy local allow-nopassword-remote-login {{allow_nopassword | set(true)}}
+</group>
+! {{_end_}}
+</group>

@@ -1,0 +1,4 @@
+<group name="aaa_accounting.{{category}}*">
+aaa accounting exec {{category}} {{type}} group {{ group }}
+! {{_end_}}
+</group>

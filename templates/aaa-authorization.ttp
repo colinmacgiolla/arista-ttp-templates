@@ -1,0 +1,14 @@
+<group name="aaa_authorization">
+aaa authorization serial-console {{ serial_console | set(true) }}
+</group>
+<group name="exec">
+aaa authorization exec default {{default | ORPHRASE}}
+</group>
+<group name="config_commands">
+no aaa authorization config-commands {{config_commands | set(false) }}
+</group>
+<group name="commands">
+aaa authorization commands all default {{all_default | ORPHRASE}}
+</group>
+! {{_end_}}
+</group>
